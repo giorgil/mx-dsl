@@ -4,7 +4,7 @@
 
 == DESCRIPTION:
 
-a ruby made dsl for chemoinformatics; base on mx lib.
+a ruby made dsl for chemoinformatics; based on mx lib http://code.google.com/p/mx-java
 
 == FEATURES/PROBLEMS:
 
