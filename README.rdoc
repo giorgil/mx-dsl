@@ -4,7 +4,7 @@
 
 == DESCRIPTION:
 
-FIX (describe your package)
+a ruby made dsl for chemoinformatics; base on mx lib.
 
 == FEATURES/PROBLEMS:
 
