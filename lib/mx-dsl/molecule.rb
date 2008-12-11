@@ -1,7 +1,7 @@
 #
 #
 #
-# Molecule.build "id" do
+# molecule "id" do
 #   atoms {
 #      comment Symb id-num R/S x y z
 #      C 1 0 0.234 0.345 0.456
