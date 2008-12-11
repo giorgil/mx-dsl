@@ -1,4 +1,4 @@
-# Let us start with making a semantic adaptation of mx, without dsl suger:
+# Let us start with making a semantic adaptation of mx, without dsl sugar:
 # Molecule.build "id" do |m|
 #    m.atoms { |atoms_collection|
 #        atoms_collection.add_atom "C", 1, 0, 0.2345, 0.3456, 1.23
