@@ -24,13 +24,13 @@
 # end
 module MXdsl
 	class Molecule < com.metamolecular.mx.model.DefaultMolecule
-		def self.atoms(range=[],&blk) 
+		def atoms(range=[],&blk) 
 		end
-		def self.bonds(range=[],&blk)
+		def bonds(range=[],&blk)
 		end
-		def self.properties(&blk)
+		def properties(&blk)
 		end
-		def self.descriptors(&blk)
+		def descriptors(&blk)
 		end
 		def method_missing(m,*args)
 		end
