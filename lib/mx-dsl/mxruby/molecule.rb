@@ -25,6 +25,9 @@
 module MXdsl
 	module MXruby
 		class Molecule < com.metamolecular.mx.model.DefaultMolecule
+			def self.build(n,&blk)
+				#
+			end
 			def atoms(&blk) 
 			end
 			def bonds(&blk)
