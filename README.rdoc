@@ -6,6 +6,11 @@
 
 a ruby made dsl for chemoinformatics; based on mx lib http://code.google.com/p/mx-java
 
+P.S. this branch ("home") is more ...experimental. sort of.
+
+P.P.S. I plan to follow the markaby (http://code.whytheluckystiff.net/markaby/ ; http://github.com/why/markaby/tree/master) way of dsl building.
+
+
 == FEATURES/PROBLEMS:
 
 * FIX (list of features or problems)

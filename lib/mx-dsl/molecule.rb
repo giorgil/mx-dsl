@@ -23,16 +23,31 @@
 #   }
 # end
 module MXdsl
-	class Molecule < com.metamolecular.mx.model.DefaultMolecule
-		def atoms(range=[],&blk) 
-		end
-		def bonds(range=[],&blk)
-		end
-		def properties(&blk)
-		end
-		def descriptors(&blk)
-		end
-		def method_missing(m,*args)
-		end
-	end #class
-end #module
+	module MXruby
+		class Molecule < com.metamolecular.mx.model.DefaultMolecule
+			def atoms(&blk) 
+			end
+			def bonds(&blk)
+			end
+			def properties(&blk)
+			end
+			def descriptors(&blk)
+			end
+			def method_missing(m,*args)
+			end
+			
+			# =========================
+			def initialize(*n,&blk)
+				super #@@ - 
+			end
+			
+			# =========================
+			
+			def atom!(*a); end
+			def bond!(*b); end
+			
+			
+			
+		end #class
+	end #MXruby
+end #MXdsl
