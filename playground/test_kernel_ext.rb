@@ -1,3 +1,14 @@
+# classes Atom, Bond, Molecule are void for the testing purpose. (I.e., right now, they are not based on # the mx package.
+# However, This module demonstrates how to extend kernel and how to handle bloks to make dsl.
+
+
+
+
+
+
+
+
+
 class Atom
 	attr_accessor :element
 	def initialize(*args)
@@ -87,7 +98,9 @@ module Kernel
 	end
 end
 
-
+# as we see, the code below is pretty readable for a chemist not versed in programming.
+# it is still a regular ruby code.
+# therefore, this approach is suitable for making ruby-based textual files to manage chemical information
 dataset "test1" do
 	molecule "testmol1" do
  		H '1', 2,3,4,5,7
