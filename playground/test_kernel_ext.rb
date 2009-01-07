@@ -96,26 +96,30 @@ module Kernel
 		d.capture(&blk)
 		d
 	end
+	def rem(txt); end
 end
 
 # as we see, the code below is pretty readable for a chemist not versed in programming.
 # it is still a regular ruby code.
 # therefore, this approach is suitable for making ruby-based textual files to manage chemical information
+
+rem "new dataset"
 dataset "test1" do
 	molecule "testmol1" do
- 		H '1', 2,3,4,5,7
- 		C '2', 2,3,4,5,7
+		rem "num, some, other, values"
+ 		H 1, 2,3,4,5,7
+ 		C 2, 2,3,4,5,7
  		single 1,2
  	end
  	molecule "testmol2" do
- 		H '1', 2,3,4,5,7
- 		C '2', 2,3,4,5,7
+ 		H 1, 2,3,4,5,7
+ 		C 2, 2,3,4,5,7
  		single 1,2
- 		H '3', 2,3,4,5,7
- 		C '4', 2,3,4,5,7
+ 		H 3, 2,3,4,5,7
+ 		C 4, 2,3,4,5,7
  		double 1,3
- 		H '5', 2,3,4,5,7
- 		C '6', 2,3,4,5,7
+ 		H 5, 2,3,4,5,7
+ 		C 6, 2,3,4,5,7
  		triple 1,2
  	end
 end
