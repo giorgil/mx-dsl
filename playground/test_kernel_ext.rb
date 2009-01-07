@@ -51,7 +51,7 @@ class Molecule
 	
 	def method_missing(n,*args)
 		nn=args.insert(0,n.to_s)		
-		if ['single','double','triple','poly'].member? n.to_s
+		if [:single,:double,:triple,:poly].member? n
 			#puts "#{n} as bond was missing"
 			bond(*nn) 
 		elsif
