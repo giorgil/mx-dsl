@@ -11,11 +11,13 @@
 
 class Atom
 	attr_accessor :element
+	attr_reader :name
 	def initialize(*args)
 		raise ArgumentError unless args.size==7
 		@element=args.first
 		@name=args[1]
 	end
+	def to_ruby; end
 end
 
 class Bond
@@ -26,6 +28,7 @@ class Bond
 		@bond_type=args.first
 		@atoms=args.slice(1..args.size)
 	end
+	def to_ruby; end
 end
 
 class Molecule
@@ -67,6 +70,8 @@ class Molecule
 	def capture(&blk)
 		instance_eval &blk
 	end
+	
+	def to_ruby; end
 end
 
 class Dataset
@@ -87,6 +92,29 @@ class Dataset
 	def capture(&blk)
 		instance_eval &blk
 	end
+	
+	def to_ruby
+		s=""
+		s<<"dataset \"#{self.name}\" do\n"
+		molecules.each do |mol|
+			s<<"\tmolecule \"#{mol.name}\" do\n" #should be merged with class Molecule as method to_ruby
+			#should be merged with class Atom as method to_ruby
+			mol.atoms.each do |atom|
+				s<<"\t\t#{atom.element.to_s.capitalize} #{atom.name}, 2,3,4,5,7\n" #the last 5 digits are for the time being :)
+			end
+			#should be merged with class Bond as method to_ruby
+			mol.bonds.each do |bond|
+				s<<"\t\t#{bond.bond_type} "
+				bond.atoms.each do |aib|
+					s<<"#{aib.to_s}, "
+				end
+				s<<"\n"
+			end
+			s<<"\tend\n"
+		end
+		s<<"end"
+		s
+	end
 end
 
 module Kernel
@@ -106,7 +134,7 @@ end
 rem "new dataset"
 dataset "test1" do
 	molecule "testmol1" do
-		rem "num, some, other, values"
+		rem "num, and some, other, values,say, Catresian coordinates, chirality..."
  		H 1, 2,3,4,5,7
  		C 2, 2,3,4,5,7
  		single 1,2
@@ -125,18 +153,14 @@ dataset "test1" do
 end
 
 puts "*"*43
-puts "*"*21+"results:"+"*"*22
+#puts "*"*7+" "*10+"results:"+" "*11+"*"*7
+puts "Now, let's generate text for a file back; \nnote that this text file is normal ruby code."
 puts "*"*43
-Test1.molecules.each do |m|
-	puts "#{m.name} - name"
-	m.bonds.each do |b|
-		puts "#{b.atoms} - atoms of the bond of type #{b.bond_type}"
-	end
-	m.atoms.each do |a|
-		puts "#{a.element} - element"
-	end
-	puts "*"*43
-end
+
+
+puts Test1.to_ruby
+
+
 		
 			
 		
