@@ -104,11 +104,7 @@ class Dataset
 			end
 			#should be merged with class Bond as method to_ruby
 			mol.bonds.each do |bond|
-				s<<"\t\t#{bond.bond_type} "
-				bond.atoms.each do |aib|
-					s<<"#{aib.to_s}, "
-				end
-				s<<"\n"
+				s<<"\t\t#{bond.bond_type} #{bond.atoms.join(', ')}\n"
 			end
 			s<<"\tend\n"
 		end
@@ -125,6 +121,9 @@ module Kernel
 		d
 	end
 	def rem(txt); end
+	def datafile(o)
+		puts o.to_ruby if o.respond_to? :to_ruby
+	end
 end
 
 # as we see, the code below is pretty readable for a chemist not versed in programming.
@@ -158,7 +157,7 @@ puts "Now, let's generate text for a file back; \nnote that this text file is no
 puts "*"*43
 
 
-puts Test1.to_ruby
+datafile Test1
 
 
 		
