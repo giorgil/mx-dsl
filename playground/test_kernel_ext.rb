@@ -115,8 +115,7 @@ end
 
 module Kernel
 	def dataset(name,&blk)		
-		d=Dataset.new(name)
-		#Object.const_set(name.capitalize,d)
+		d=Dataset.new(name)		
 		d.capture(&blk)
 		register(name,d)
 	end
