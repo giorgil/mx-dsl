@@ -116,9 +116,9 @@ end
 module Kernel
 	def dataset(name,&blk)		
 		d=Dataset.new(name)
-		Object.const_set(name.capitalize,d)
+		#Object.const_set(name.capitalize,d)
 		d.capture(&blk)
-		d
+		register(name,d)
 	end
 	def rem(txt); end
 	def datafile(o)
@@ -126,6 +126,20 @@ module Kernel
 	end
 end
 
+class Object
+	def register(n,o)
+		instance_variable_set("@#{n}",o)
+		instance_eval %{
+			def #{n}
+				@#{n}
+			end
+			def #{n}=(dd)
+				@#{n}=dd
+			end
+		}
+		o
+	end
+end
 # as we see, the code below is pretty readable for a chemist not versed in programming.
 # it is still a regular ruby code.
 # therefore, this approach is suitable for making ruby-based textual files to manage chemical information
@@ -157,7 +171,7 @@ puts "Now, let's generate text for a file back; \nnote that this text file is no
 puts "*"*43
 
 
-datafile Test1
+datafile test1
 
 
 		
